@@ -15,6 +15,7 @@ class HomeActivity : AppCompatActivity() {
         cycleBTN.setOnClickListener { startActivity(Intent(this, LifeCycleActivity::class.java)) }
         saveBTN.setOnClickListener { startActivity(Intent(this, SaveActivity::class.java)) }
         permissionBTN.setOnClickListener { startActivity(Intent(this, PermissionActivity::class.java)) }
+        WSBTN.setOnClickListener { startActivity(Intent(this, WebServiceActivity::class.java)) }
 
         LOGOUT.setOnClickListener {
             val userPref = getSharedPreferences(Constants.userpref, Context.MODE_PRIVATE)

@@ -6,9 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -34,6 +36,10 @@
                 android:layout_marginTop="24dp"
                 android:background="@color/colorPrimary"
                 android:contentDescription="@string/IMGDesc"
+                android:paddingLeft="7dp"
+                android:paddingTop="7dp"
+                android:paddingRight="7dp"
+                android:paddingBottom="7dp"
                 android:scaleType="fitCenter"
                 android:tint="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/permissionBTN"
@@ -58,6 +64,10 @@
                 android:layout_marginTop="24dp"
                 android:background="@color/colorPrimary"
                 android:contentDescription="@string/IMGDesc"
+                android:paddingLeft="7dp"
+                android:paddingTop="7dp"
+                android:paddingRight="7dp"
+                android:paddingBottom="7dp"
                 android:scaleType="fitCenter"
                 android:tint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +92,10 @@
                 android:layout_marginTop="32dp"
                 android:background="@color/colorPrimary"
                 android:contentDescription="@string/IMGDesc"
+                android:paddingLeft="7dp"
+                android:paddingTop="7dp"
+                android:paddingRight="7dp"
+                android:paddingBottom="7dp"
                 android:scaleType="fitCenter"
                 android:tint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -106,6 +120,10 @@
                 android:layout_marginTop="32dp"
                 android:background="@color/colorPrimary"
                 android:contentDescription="@string/IMGDesc"
+                android:paddingLeft="7dp"
+                android:paddingTop="7dp"
+                android:paddingRight="7dp"
+                android:paddingBottom="7dp"
                 android:scaleType="fitCenter"
                 android:tint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"

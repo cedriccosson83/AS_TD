@@ -6,7 +6,6 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.emeric.androidtoolbox.HomeActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 
