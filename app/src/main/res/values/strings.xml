@@ -1,23 +1,29 @@
 <resources>
+
+    //Others
     <string name="app_name">TD_android_studio</string>
     <string name="IMGDesc">IMGDesc</string>
 
+    //Connexion
     <string name="CONNEXION">CONNEXION</string>
     <string name="ID">Identifiant</string>
     <string name="PASS">Mot de passe</string>
     <string name="VALIDER">VALIDER</string>
 
+    //Page d'accueil
     <string name="home_permission">Permissions</string>
     <string name="home_save">Sauvegarder</string>
     <string name="home_lifeCylce">Cycle de vie</string>
     <string name="home_webservice">Web Service</string>
     <string name="LOGOUT">DECONNEXION</string>
 
+    //Cycle de vie
     <string name="first_text">FRAGMENT 1</string>
     <string name="second_text">FRAGMENT 2</string>
     <string name="first_swipe_btn">SWIPE TO 2</string>
     <string name="second_swipe_btn">SWIPE TO 1</string>
 
+    //Sauvegarde
     <string name="firstname">Prénom</string>
     <string name="lastname">Nom</string>
     <string name="birthdate">Date de naissance</string>
@@ -25,6 +31,9 @@
     <string name="save">Sauvegarder</string>
     <string name="add">Ajouter</string>
     <string name="emptystr">Erreur une des chaînes est vide</string>
+
+    //Permissions
+    <string name="changeImg">Changer d\'image</string>
 
 
 

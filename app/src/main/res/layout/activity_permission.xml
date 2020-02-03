@@ -6,4 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".PermissionActivity">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/IMGDesc"
+        android:fontFamily="casual"
+        android:text="@string/changeImg"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/reloadBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/reloadBTN"
+        android:layout_width="344dp"
+        android:layout_height="339dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="60dp"
+        android:background="#FFFFFF"
+        android:contentDescription="@string/IMGDesc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:srcCompat="@drawable/image"
+        tools:srcCompat="@drawable/image" />
 </androidx.constraintlayout.widget.ConstraintLayout>
