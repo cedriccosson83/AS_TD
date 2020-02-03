@@ -11,10 +11,21 @@
     <string name="home_save">Sauvegarder</string>
     <string name="home_lifeCylce">Cycle de vie</string>
     <string name="home_webservice">Web Service</string>
-    <string name="LOGOUT">Web Service</string>
+    <string name="LOGOUT">DECONNEXION</string>
 
     <string name="first_text">FRAGMENT 1</string>
     <string name="second_text">FRAGMENT 2</string>
     <string name="first_swipe_btn">SWIPE TO 2</string>
     <string name="second_swipe_btn">SWIPE TO 1</string>
+
+    <string name="firstname">Prénom</string>
+    <string name="lastname">Nom</string>
+    <string name="birthdate">Date de naissance</string>
+    <string name="read">Lire un fichier</string>
+    <string name="save">Sauvegarder</string>
+    <string name="add">Ajouter</string>
+    <string name="emptystr">Erreur une des chaînes est vide</string>
+
+
+
 </resources>
