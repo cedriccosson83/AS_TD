@@ -34,7 +34,10 @@
 
     //Permissions
     <string name="changeImg">Changer d\'image</string>
-
+    <string name="contactName">Nom du contact</string>
+    <string name="contact_list">Liste des contacts</string>
+    <string name="gps">GPS</string>
+    <string name="AddressContact">Adresse du contact</string>
 
 
 </resources>

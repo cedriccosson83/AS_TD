@@ -12,18 +12,22 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_permission.*
 
 class PermissionActivity : AppCompatActivity() {
 
+    // code requests
     private val codePicture = 1
     private val codeContact = 2
+
+    //shortcut
     private val granted = PackageManager.PERMISSION_GRANTED
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_permission)
-        reloadBTN.setOnClickListener{onChangePhoto()}
+        reloadBTN.setOnClickListener{onChangePhoto()} // picture change
         requestPermission(android.Manifest.permission.READ_CONTACTS, codeContact) {readContacts()}
     }
 
@@ -48,10 +52,17 @@ class PermissionActivity : AppCompatActivity() {
     }
 
     private fun readContacts () {
-        Log.d(
-            "contacts",
-            "${contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null)}"
-        )
+        val listeContacts = ArrayList<ContactModel>()
+        val contacts = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null)
+        Log.d("contacts", "${contacts}")
+        while (contacts?.moveToNext() ?: false) {
+            val name = contacts?.getString(contacts.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+            val contact = ContactModel()
+            contact.name = "Nom : " + name.toString()
+            listeContacts.add(contact)
+        }
+        contactsContainer.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        contactsContainer.adapter = ContactAdapter(listeContacts)
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -66,7 +77,7 @@ class PermissionActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == codePicture && resultCode == Activity.RESULT_OK) {
             if (data?.data != null) {
-                reloadBTN.setImageURI(data?.data)
+                reloadBTN.setImageURI(data.data)
             } else {
                 val img = data?.extras?.get("data") as? Bitmap
                 img?.let {reloadBTN.setImageBitmap(img)}
