@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WebServiceActivity"></activity>
+        <activity android:name=".EmptyFragment"></activity>
+        <activity android:name=".SecondFragment" />
+        <activity android:name=".FirstFragment" />
+        <activity android:name=".WebServiceActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SaveActivity" />
         <activity android:name=".PermissionActivity" />
