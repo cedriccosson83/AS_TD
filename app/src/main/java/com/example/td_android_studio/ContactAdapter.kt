@@ -1,5 +1,6 @@
 package com.example.td_android_studio
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,12 @@ class ContactAdapter (val contacts: ArrayList<ContactModel>): RecyclerView.Adapt
     class ContactViewHolder(val view: View): RecyclerView.ViewHolder(view) {
         fun bind(contact: ContactModel) {
             view.contactNameInList.text = contact.name
+            view.AddressInList.text = contact.tel
+            view.MailInList.text = contact.mail
+            if (contact.picture != null)
+                view.AvatarInList.setImageBitmap(contact.picture)
+            else
+                view.AvatarInList.setImageResource(R.drawable.contact)
         }
     }
 

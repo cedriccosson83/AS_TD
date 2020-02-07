@@ -4,52 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/holo_red_light"
-    android:minHeight="80dp"
+    android:background="#00FF4444"
+    android:minHeight="100dp"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/contactNameInList"
         android:layout_width="290dp"
-        android:layout_height="25dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="@string/contactName"
-        android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textColor="#000000"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintStart_toEndOf="@+id/AvatarInList"
+        app:layout_constraintTop_toTopOf="@+id/AvatarInList" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/MailInList"
         android:layout_width="290dp"
         android:layout_height="23dp"
-        android:text="@string/gps"
-        android:textColor="@color/white"
+        android:layout_marginStart="16dp"
+        android:text="@string/mail"
+        android:textColor="#000000"
         android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/AvatarInList"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AvatarInList"
         app:layout_constraintTop_toBottomOf="@+id/AddressInList" />
 
     <TextView
         android:id="@+id/AddressInList"
         android:layout_width="287dp"
         android:layout_height="20dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/AddressContact"
-        android:textColor="@color/white"
+        android:textColor="#000000"
         android:textSize="12sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView10"
+        app:layout_constraintBottom_toTopOf="@+id/MailInList"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.981"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AvatarInList"
         app:layout_constraintTop_toBottomOf="@+id/contactNameInList" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="103dp"
+        android:id="@+id/AvatarInList"
+        android:layout_width="83dp"
         android:layout_height="72dp"
         android:contentDescription="@string/IMGDesc"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars[11]" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

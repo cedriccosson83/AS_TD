@@ -3,7 +3,10 @@ package com.example.td_android_studio
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.database.Cursor
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -14,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_permission.*
+import java.io.BufferedInputStream
 
 class PermissionActivity : AppCompatActivity() {
 
@@ -28,6 +32,7 @@ class PermissionActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_permission)
         reloadBTN.setOnClickListener{onChangePhoto()} // picture change
+        changeImgText.setOnClickListener{onChangePhoto()} // picture change
         requestPermission(android.Manifest.permission.READ_CONTACTS, codeContact) {readContacts()}
     }
 
@@ -55,10 +60,60 @@ class PermissionActivity : AppCompatActivity() {
         val listeContacts = ArrayList<ContactModel>()
         val contacts = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null)
         Log.d("contacts", "${contacts}")
-        while (contacts?.moveToNext() ?: false) {
-            val name = contacts?.getString(contacts.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+        while (contacts?.moveToNext() == true) {
+
             val contact = ContactModel()
-            contact.name = "Nom : " + name.toString()
+
+            /* NAME AND ID */
+            val name = contacts.getString(contacts.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+            contact.name = "$name"
+            val id = contacts.getString(contacts.getColumnIndex(ContactsContract.Contacts._ID))
+
+
+            /* PHONE NUMBER */
+            val phoneNumber = (contacts.getString(
+                contacts.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))).toInt()
+            if (phoneNumber > 0) {
+                val cursorPhone = contentResolver.query(
+                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                    null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=?", arrayOf(id), null)
+
+                if(cursorPhone != null && cursorPhone.count > 0) {
+                    while (cursorPhone.moveToNext()) {
+                        val phoneNumValue = cursorPhone.getString(cursorPhone.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                        contact.tel = "Tel : $phoneNumValue"
+                    }
+                }
+                cursorPhone?.close()
+            }
+
+            /* MAIL ADDRESS */
+            var mail = ""
+            val mailCursor = contentResolver.query(
+                ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                null,
+                ContactsContract.CommonDataKinds.Email.CONTACT_ID + " = ?",
+                arrayOf<String>(id),
+                null
+            )
+            while(mailCursor != null && mailCursor.moveToNext()) {
+                mail += mailCursor.getString(
+                    mailCursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA)
+                ) + "\n"
+            }
+
+            mailCursor?.close()
+            contact.mail = "Email : $mail"
+
+            /* CONTACT THUMBNAIL */
+
+            val contactPhotoUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_URI, id)
+            val photoStream = ContactsContract.Contacts.openContactPhotoInputStream(contentResolver, contactPhotoUri)
+            val buffer = BufferedInputStream(photoStream)
+            val contactPhoto = BitmapFactory.decodeStream(buffer)
+
+            contact.picture = contactPhoto
+
             listeContacts.add(contact)
         }
         contactsContainer.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
