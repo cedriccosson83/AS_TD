@@ -25,18 +25,19 @@
         android:layout_width="290dp"
         android:layout_height="23dp"
         android:layout_marginStart="16dp"
-        android:text="@string/mail"
+        android:text="@string/tel"
         android:textColor="#000000"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/AvatarInList"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toEndOf="@+id/AvatarInList"
         app:layout_constraintTop_toBottomOf="@+id/AddressInList" />
 
     <TextView
         android:id="@+id/AddressInList"
         android:layout_width="287dp"
-        android:layout_height="20dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="@string/AddressContact"

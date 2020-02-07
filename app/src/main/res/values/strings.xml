@@ -39,6 +39,9 @@
     <string name="gps">GPS</string>
     <string name="mail">Mail</string>
     <string name="AddressContact">Adresse du contact</string>
+    <string name="RUG">Random User Generator</string>
+    <string name="location">Location</string>
+    <string name="tel">N° Tel</string>
 
 
 </resources>
