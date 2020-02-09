@@ -40,10 +40,9 @@ class PermissionActivity : AppCompatActivity(), LocationListener {
         setContentView(R.layout.activity_permission)
         reloadBTN.setOnClickListener{onChangePhoto()} // picture change
         changeImgText.setOnClickListener{onChangePhoto()} // picture change
-        requestPermission(android.Manifest.permission.READ_CONTACTS, codeContact) {readContacts()}
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-
+        requestPermission(android.Manifest.permission.READ_CONTACTS, codeContact) {readContacts()}
         requestPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION, codeLocation) { getGPS() }
     }
 
@@ -164,6 +163,7 @@ class PermissionActivity : AppCompatActivity(), LocationListener {
     }
 
     fun refreshPositionUI(location: Location){
+        Log.d("LOCATION", "${location.latitude} - ${location.longitude}")
         userLat.text = "Latitude: ${location.latitude}"
         userLon.text = "Longitude: ${location.longitude}"
     }
