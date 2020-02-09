@@ -1,11 +1,16 @@
 package com.example.td_android_studio
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,14 +24,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_permission.*
 import java.io.BufferedInputStream
 
-class PermissionActivity : AppCompatActivity() {
+class PermissionActivity : AppCompatActivity(), LocationListener {
 
     // code requests
     private val codePicture = 1
     private val codeContact = 2
+    private val codeLocation = 3
 
     //shortcut
     private val granted = PackageManager.PERMISSION_GRANTED
+    private lateinit var locationManager: LocationManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +41,10 @@ class PermissionActivity : AppCompatActivity() {
         reloadBTN.setOnClickListener{onChangePhoto()} // picture change
         changeImgText.setOnClickListener{onChangePhoto()} // picture change
         requestPermission(android.Manifest.permission.READ_CONTACTS, codeContact) {readContacts()}
+
+        locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        requestPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION, codeLocation) { getGPS() }
     }
 
     private fun onChangePhoto () {
@@ -139,4 +150,32 @@ class PermissionActivity : AppCompatActivity() {
             }
         }
     }
+
+
+    /* LOCATION INTERFACE MEMBERS */
+
+    @SuppressLint("MissingPermission")
+    private fun getGPS() {
+        locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, this, null)
+        val location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+        location?.let {
+            refreshPositionUI(it)
+        }
+    }
+
+    fun refreshPositionUI(location: Location){
+        userLat.text = "Latitude: ${location.latitude}"
+        userLon.text = "Longitude: ${location.longitude}"
+    }
+
+    override fun onLocationChanged(location: Location?) {
+        location?.let{
+            refreshPositionUI(it)
+        }
+    }
+
+    /* To Dismiss unimplement error */
+    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {}
+    override fun onProviderEnabled(provider: String?) {}
+    override fun onProviderDisabled(provider: String?) {}
 }

@@ -41,8 +41,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/contactsContainer"
-        android:layout_width="360dp"
-        android:layout_height="487dp"
+        android:layout_width="352dp"
+        android:layout_height="443dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="24dp"
@@ -64,6 +64,51 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reloadBTN"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintTop_toBottomOf="@+id/userLon" />
+
+    <TextView
+        android:id="@+id/twGPS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Coordonnées GPS"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/userLat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reloadBTN" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/twGPS"
+        app:layout_constraintEnd_toStartOf="@+id/twGPS"
+        app:layout_constraintTop_toTopOf="@+id/twGPS"
+        app:srcCompat="@drawable/location" />
+
+    <TextView
+        android:id="@+id/userLat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/lat"
+        app:layout_constraintBottom_toTopOf="@+id/userLon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/twGPS" />
+
+    <TextView
+        android:id="@+id/userLon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="@string/lon"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userLat" />
 </androidx.constraintlayout.widget.ConstraintLayout>

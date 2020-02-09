@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity() {
 
     var id = "admin"
-    var pass = "admin"
+    var pass = "123"
     var userpref : SharedPreferences? = null
 
 
