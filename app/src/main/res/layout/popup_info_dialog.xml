@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
+
+    <ImageView
+        android:id="@+id/popUpAvatar"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/IMGDesc"
+        app:layout_constraintBottom_toTopOf="@+id/popUpName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars[0]" />
+
+    <TextView
+        android:id="@+id/popUpName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/popupname"
+        android:textColor="#4F5FBA"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popUpAvatar" />
+
+    <TextView
+        android:id="@+id/popUpMailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/popUpMail"
+        android:textColor="#343434"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/popUpMail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/popUpGender" />
+
+    <TextView
+        android:id="@+id/popUpAddressLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/popUpAddress"
+        android:textColor="#343434"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/popUpAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/popUpMail" />
+
+    <TextView
+        android:id="@+id/popUpGenderLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="176dp"
+        android:text="@string/gender"
+        android:textColor="#343434"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/popUpGender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/popUpName" />
+
+    <TextView
+        android:id="@+id/popUpPhoneLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="178dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="174dp"
+        android:text="@string/popUpPhone"
+        android:textColor="#343434"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/popUpPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/popUpAddress" />
+
+    <Button
+        android:id="@+id/popUpHideBTN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#A190FF00"
+        android:text="@string/dismissPopup"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/popUpPhone" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="31dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/IMGDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/popUpPhoneLabel"
+        app:layout_constraintEnd_toStartOf="@+id/popUpPhoneLabel"
+        app:layout_constraintTop_toTopOf="@+id/popUpPhoneLabel"
+        app:srcCompat="@drawable/call" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="34dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/IMGDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/popUpAddressLabel"
+        app:layout_constraintEnd_toStartOf="@+id/popUpAddressLabel"
+        app:layout_constraintTop_toTopOf="@+id/popUpAddressLabel"
+        app:srcCompat="@drawable/location" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="41dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/IMGDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/popUpMailLabel"
+        app:layout_constraintEnd_toStartOf="@+id/popUpMailLabel"
+        app:layout_constraintTop_toTopOf="@+id/popUpMailLabel"
+        app:srcCompat="@drawable/mail" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="56dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/IMGDesc"
+        app:layout_constraintBottom_toBottomOf="@+id/popUpGenderLabel"
+        app:layout_constraintEnd_toStartOf="@+id/popUpGenderLabel"
+        app:layout_constraintTop_toTopOf="@+id/popUpGenderLabel"
+        app:srcCompat="@drawable/gender" />
+
+    <TextView
+        android:id="@+id/popUpGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@+id/popUpMailLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popUpGenderLabel" />
+
+    <TextView
+        android:id="@+id/popUpMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@+id/popUpAddressLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popUpMailLabel" />
+
+    <TextView
+        android:id="@+id/popUpAddress"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@+id/popUpPhoneLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popUpAddressLabel" />
+
+    <TextView
+        android:id="@+id/popUpPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textview"
+        app:layout_constraintBottom_toTopOf="@+id/popUpHideBTN"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popUpPhoneLabel" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

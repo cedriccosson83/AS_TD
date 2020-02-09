@@ -42,6 +42,18 @@
     <string name="RUG">Random User Generator</string>
     <string name="location">Location</string>
     <string name="tel">N° Tel</string>
+    <string name="popupname">Prénom Nom</string>
+    <string name="popUpMail">Adresse Mail</string>
+    <string name="popUpAddress">Adresse Postale</string>
+    <string name="dismissPopup">Masquer</string>
+    <string name="popUpPhone">N° Téléphone</string>
+    <string name="gender">Genre</string>
+    <string name="male">Homme</string>
+    <string name="female">Femme</string>
+    <string name="detail">Détail</string>
+    <string name="textview">TextViewValue</string>
+    <string name="lat">Latitude</string>
+    <string name="lon">Longitude</string>
 
 
 </resources>
